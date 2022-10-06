@@ -2,6 +2,7 @@ package br.com.adegariviera.domain.model;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -23,7 +24,7 @@ public class Pedido
 	
 	private Cliente cliente;
 	
-	// TODO Colocar list de produtos
+	private List<Produto> produtos;
 	
 	@Column(name = "valor_Total")
 	private BigDecimal valorTotal;
