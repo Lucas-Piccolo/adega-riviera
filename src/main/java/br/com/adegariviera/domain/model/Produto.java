@@ -1,8 +1,6 @@
 package br.com.adegariviera.domain.model;
 
 import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -12,28 +10,29 @@ import javax.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
 @Setter
+@Getter
 @Entity
-public class Pedido 
+public class Produto 
 {
 	@Id
 	private Long id;
 	
-	private Date data;
+	private String nome;
 	
-	private Cliente cliente;
+	private String descricao;
 	
-	private List<Produto> produtos;
+	@Column(name = "preco_Compra")
+	private BigDecimal precoCompra;
 	
-	@Column(name = "valor_Total")
-	private BigDecimal valorTotal;
+	@Column(name = "preco_Venda")
+	private BigDecimal precoVenda;
 	
-	@Column(name = "qtd_Produtos")
-	private Integer qtdProdutos;
+	@Column(name = "qtd_Estoque")
+	private Integer qtdEstoque;
 	
-	@Column(name = "taxa_Entrega")
-	private BigDecimal taxaEntrega;
+	@Column(name = "qtd_Vendido")
+	private Integer qtdVendido;
 
 	@Override
 	public int hashCode() 
@@ -50,7 +49,7 @@ public class Pedido
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Pedido other = (Pedido) obj;
+		Produto other = (Produto) obj;
 		return Objects.equals(id, other.id);
 	}
 }
