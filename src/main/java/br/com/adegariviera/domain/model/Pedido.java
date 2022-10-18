@@ -7,17 +7,23 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 public class Pedido 
 {
+	@EqualsAndHashCode.Include
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private Date data;
@@ -34,23 +40,4 @@ public class Pedido
 	
 	@Column(name = "taxa_Entrega")
 	private BigDecimal taxaEntrega;
-
-	@Override
-	public int hashCode() 
-	{
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) 
-	{
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Pedido other = (Pedido) obj;
-		return Objects.equals(id, other.id);
-	}
 }
