@@ -32,13 +32,6 @@ public class ProdutoRepositoryImpl implements ProdutoRepository
 	}
 
 	@Override
-	public Produto editar(Produto produto) 
-	{
-	// TODO criar lógica para editar um produto
-		return null;
-	}
-
-	@Override
 	public void remover(Produto produto) 
 	{
 		produto = buscar(produto.getId());
